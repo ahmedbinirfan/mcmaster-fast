@@ -1,22 +1,29 @@
 # mcmaster-fast
 
-Cursor agent skill for making a website feel like [mcmaster.com](https://www.mcmaster.com/): HTML the browser can paint immediately, a shell that stays mounted, and the next page fetched on intent.
+mcmaster-fast is a Cursor agent skill: written instructions for the coding agent, not an application. When you ask Cursor to make a website feel fast, the skill tells it to follow the same order of work as [mcmaster.com](https://www.mcmaster.com/). Send HTML the browser can paint immediately, keep the page shell on screen, and fetch the next page when someone is about to open it.
 
-## Install
+Nothing is compiled, and there is no server to start.
 
-**Cursor (personal, all projects):**
+## What you need
+
+- [Cursor](https://cursor.com)
+- No extra language runtime, database, or API key
+
+Cursor reads `SKILL.md` when a request matches the skill. While it works, it also reads `techniques.md` and `recipes.md`.
+
+## Download and use
+
+For every project on your computer:
 
 ```bash
-mkdir -p ~/.cursor/skills/mcmaster-fast
-curl -fsSL https://raw.githubusercontent.com/ahmedbinirfan/mcmaster-fast/main/SKILL.md -o ~/.cursor/skills/mcmaster-fast/SKILL.md
-curl -fsSL https://raw.githubusercontent.com/ahmedbinirfan/mcmaster-fast/main/techniques.md -o ~/.cursor/skills/mcmaster-fast/techniques.md
-curl -fsSL https://raw.githubusercontent.com/ahmedbinirfan/mcmaster-fast/main/recipes.md -o ~/.cursor/skills/mcmaster-fast/recipes.md
+git clone https://github.com/ahmedbinirfan/mcmaster-fast.git ~/.cursor/skills/mcmaster-fast
 ```
 
-**One project:** copy `SKILL.md`, `techniques.md`, and `recipes.md` into `.cursor/skills/mcmaster-fast/`.
+For one project only:
 
-Cursor loads the skill from `SKILL.md`. The other two files are the recipes it reads while applying a rung.
+```bash
+mkdir -p .cursor/skills
+git clone https://github.com/ahmedbinirfan/mcmaster-fast.git .cursor/skills/mcmaster-fast
+```
 
-## What it covers
-
-HTML-first render, app-shell navigation, intent prefetch, layered caching, critical CSS, page-specific JS, and layout stability. Stack-specific mappings are in `recipes.md`.
+Start a new Cursor chat so it picks up the new skill. Then ask it to make a site feel instant, or mention McMaster-Carr, hover prefetch, or an app shell. You do not run a start command. The next website task in Cursor is how the skill runs.
